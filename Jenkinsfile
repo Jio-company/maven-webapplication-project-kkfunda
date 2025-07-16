@@ -1,4 +1,4 @@
-  node
+node
   {
       echo "git branch name: ${env.BRANCH_NAME}"
       echo "build number is: ${env.BUILD_NUMBER}"
@@ -8,7 +8,7 @@
   	def mavenHome = tool name: "maven-3.9.9"
 
   try
-  {
+      {
 
       stage('git checkout') {
       	git branch: 'development', url: 'https://github.com/Jio-company/maven-webapplication-project-kkfunda.git'
@@ -36,7 +36,7 @@
           """
       }
 
-  } 
+} 
 
   catch (e) {
 
@@ -50,7 +50,7 @@
     notifyBuild(currentBuild.result)
     }
 
-  }
+ }
       def notifyBuild(String buildStatus = 'STARTED') {
 
     // build status of null means successful
